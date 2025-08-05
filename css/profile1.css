@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/* Profile1.css - Basic profile card styling */
+
+.profile-card {
+    width: 320px;
+    margin: 40px auto;
+    padding: 24px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.profile-card img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 3px solid #e0e0e0;
+}
+
+.profile-card h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.profile-card p {
+    margin: 0 0 16px 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+.profile-card .profile-links a {
+    display: inline-block;
+    margin: 0 8px;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.profile-card .profile-links a:hover {
+    color: #0d47a1;
+}
