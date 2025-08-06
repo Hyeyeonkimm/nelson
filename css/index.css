@@ -192,3 +192,50 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* 슬라이더 컨트롤 부분 수정 */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* 호버 효과 추가 */
+.products-grid > div,
+.styles-grid > div,
+.lookbook-grid > div,
+.story-grid > div {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.products-grid > div:hover,
+.styles-grid > div:hover,
+.lookbook-grid > div:hover,
+.story-grid > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 메뉴 항목에 호버 효과 */
+.main-nav a {
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #FF8C42;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FF8C42;
+    transition: width 0.3s;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
