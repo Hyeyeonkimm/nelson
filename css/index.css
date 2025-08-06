@@ -24,10 +24,31 @@ header {
     margin-bottom: 15px;
 }
 
+.logo {
+    text-align: center;
+    flex-grow: 1;
+}
+
 .logo h1 {
     color: #FF8C42;  /* 오렌지 컬러 로고 */
     font-size: 24px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo h1 span {
+    display: block;
+    font-weight: bold;
+}
+
+.left-menu {
+    flex-basis: 100px;
+}
+
+.right-menu {
+    flex-basis: 100px;
+    text-align: right;
 }
 
 .right-menu a {
