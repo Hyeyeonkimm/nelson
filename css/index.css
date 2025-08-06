@@ -155,14 +155,44 @@ section h2 {
 
 /* 파트너사 로고 */
 .partners {
-    text-align: center;
-    background-color: #f9f9f9;
+    padding: 40px 0;
+    background-color: #fff;
 }
 
-.logos {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.logos-grid img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.logos-grid img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .logos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 20px;
+    }
+    
+    .logos-grid img {
+        max-width: 80px;
+    }
 }
 
 /* 상품, 스타일, 룩북, 스토리 그리드 */
