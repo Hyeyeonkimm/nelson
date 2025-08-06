@@ -165,8 +165,8 @@ section h2 {
     gap: 30px;
     align-items: center;
     justify-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1440px;
+    margin: 40 auto;
 }
 
 .logos-grid img {
