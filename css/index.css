@@ -63,7 +63,7 @@ header {
 }
 
 .visual-container {
-    position: relative
+    position: relative;
     width: 100%;
     overflow: hidden;
 }
@@ -74,7 +74,7 @@ header {
 } 
 
 .slide {
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 
