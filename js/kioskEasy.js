@@ -1,9 +1,12 @@
 // 장바구니 데이터, 객체
 const cart = {};
+const DISCOUNT_RATE = 0.1; // 10% 할인율
 
 // HTML 요소 참조
 const menu = document.querySelector("#menu");
 const cartDisplay = document.querySelector("#cart");
+const originalTotalDisplay = document.querySelector('#original-total'); //추가
+const discountAmountDisplay = document.querySelector('#discount-amount'); //추가
 const totalDisplay = document.querySelector("#total");
 
 // 메뉴 버튼 클릭 이벤트 추가
@@ -41,7 +44,8 @@ menu.addEventListener("click", (event) => {
 // 장바구니와 총액 업데이트
 function updateCart() {
     cartDisplay.innerHTML = ""; // 변수 cartDisplay의 자식 태그구성을 공백으로 초기화
-    let total = 0; // 총금액은 0 이다. 
+    let originalTotal = 0; // 원래 총액
+    let discountedTotal = 0; // 할인 후 총액 
     /**
      * 이 함수는 클릭
      * 그때마다 초기화를 해 버리면 오히려 비효율적이지 않나? 라는 생각을 할 수 있고
@@ -59,18 +63,29 @@ function updateCart() {
         const { price, count } = cart[name];
         // 구조 분해 할당을 함, 오른쪽의 값을 왼쪽의 구성으로 해체쇼
         // 값이 두개가 들어있는 상태라서 price와 count에 각각 할당 
-        total += price * count; // 계산해서, total에 누적할당해줘
+        const itemTotal = price * count; //해당 상품의 총액
+        originalTotal += itemTotal; // 원가 합계에 추가
 
+        const discountedItemTotal = itemTotal * (1 - DISCOUNT_RATE); // 할인된 가격
+        discountedTotal += discountedItemTotal; // 할인된 총액에 추가
+
+        // 새로운 div 생성하여 상품 정보 표시
         const item = document.createElement("div");
-        // 쌩 div만들어서 item이라고 할게
-        // 그 item에 글씨만 넣어줘.textContent
+       
+        // 원가와 할인가 모두 표시
+        item.textContent = `${name} x${count} 
+                           원가: ${itemTotal.toLocaleString()}원
+                           할인가: ${discountedItemTotal.toLocaleString()}원`;
+        // 할인 적용된 항목에 스타일 추가
+        item.style.color = "#e74c3c"; //빨간색으로 표시
 
-        item.textContent = `${name} x${count} (${(price * count).toLocaleString()}원)`;
-        // .toLocaleString() 라는 메서드는 문화권에 대응해서 우리나라 3자리수 콤마를 넣는 함수
         cartDisplay.appendChild(item);
         // .appendChild(itme) 미리 만들어 둔 cartDisplay에 item을 자식으로 추가해줘
     }
 
-    totalDisplay.textContent = total.toLocaleString();
-    // 미리 만들어 둔 totalDisplay에 세자리 콤마 금액을 글씨만 똑 떼어 넣어줘
+    // 화면에 금액 정보 업데이트
+    originalTotalDisplay.textContent = originalTotal.toLocaleString();
+    const discountedAmount = originalTotal - discountedTotal;
+    discountAmountDisplay.textContent = discountAmount.toLocaleString();
+    totalDisplay.textContent = discountedTotal.toLocaleString();
 }
