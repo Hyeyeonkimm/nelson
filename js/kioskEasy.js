@@ -84,7 +84,7 @@ function updateCart() {
         // .appendChild(itme) 미리 만들어 둔 cartDisplay에 item을 자식으로 추가해줘
     }
     // 구분선 추가
-    const divider = document.createdElement("hr");
+    const divider = document.createElement("hr");
     divider.style.borderTop = "2px solid #333"; // 구분선 스타일
     divider.style.marginTop = "20px"; // 위쪽 여백
     divider.style.marginBottom = "20px"; // 아래쪽 여백
