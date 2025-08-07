@@ -72,12 +72,10 @@ function updateCart() {
         // 새로운 div 생성하여 상품 정보 표시
         const item = document.createElement("div");
        
-        // 원가와 할인가 모두 표시
-        item.textContent = `${name} x${count} 
-                           원가: ${itemTotal.toLocaleString()}원
-                           할인가: ${discountedItemTotal.toLocaleString()}원`;
-        // 할인 적용된 항목에 스타일 추가
-        item.style.color = "#e74c3c"; //빨간색으로 표시
+        // 원가와 할인가 모두 표시 - 시각적 개선
+        item.innerHTML = `${name} x${count} <br>
+                           원가: <span style="text-decoration: line-through;">${itemTotal.toLocaleString()}원</span> <br><strong style="color: #e74c3c;">할인가: ${Math.round(discountedItemTotal).toLocaleString()}원</strong>`;
+
 
         cartDisplay.appendChild(item);
         // .appendChild(itme) 미리 만들어 둔 cartDisplay에 item을 자식으로 추가해줘
