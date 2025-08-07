@@ -17,7 +17,8 @@ menu.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
         const name = event.target.getAttribute("data-name");
         // 그 타겟의 속성(data-name)좀 떼와, name에 할당해
-        const price = event.target.getAttribute("data-price");
+        const price = Number(event.target.getAttribute("data-price")); // 숫자로 변환
+    }
         // 그 타켓의 속성(data-price)를 좀 떼와, price에 할당해
 
 
@@ -85,7 +86,7 @@ function updateCart() {
 
     // 화면에 금액 정보 업데이트
     originalTotalDisplay.textContent = originalTotal.toLocaleString();
-    const discountedAmount = originalTotal - discountedTotal;
-    discountAmountDisplay.textContent = discountAmount.toLocaleString();
-    totalDisplay.textContent = discountedTotal.toLocaleString();
+    const discountAmount = originalTotal - discountedTotal; //변수명 통일
+    discountAmountDisplay.textContent = Math.round(discountAmount).toLocaleString(); // Math.round() 추가
+    totalDisplay.textContent = Math.round(discountedTotal).toLocaleString(); // Math.round() 추가
 }
