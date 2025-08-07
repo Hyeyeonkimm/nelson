@@ -8,4 +8,3 @@ btn1.addEventListener("click", () =>{
 function greet(name){
     return 'Hello, ${name}!';
 }
-console.log(Feet("Hyeyeon")); // 콘솔을 통해 호출
