@@ -2,9 +2,9 @@
 const cart = {};
 
 // HTML 요소 참조
-const menu = document.querySelector('#menu');
-const cartDisplay = document.querySelector('#cart');
-const totalDisplay = document.querySelector('#total');
+const menu = document.querySelector("#menu");
+const cartDisplay = document.querySelector("#cart");
+const totalDisplay = document.querySelector("#total");
 
 // 메뉴 버튼 클릭 이벤트 추가
 menu.addEventListener("click", (event) => {
