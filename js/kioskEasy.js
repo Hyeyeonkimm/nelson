@@ -18,7 +18,6 @@ menu.addEventListener("click", (event) => {
         const name = event.target.getAttribute("data-name");
         // 그 타겟의 속성(data-name)좀 떼와, name에 할당해
         const price = Number(event.target.getAttribute("data-price")); // 숫자로 변환
-    }
         // 그 타켓의 속성(data-price)를 좀 떼와, price에 할당해
 
 
