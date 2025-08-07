@@ -72,6 +72,9 @@ function updateCart() {
         // 새로운 div 생성하여 상품 정보 표시
         const item = document.createElement("div");
        
+        // 각 아이템에 마진 추가로 간격 넓히기
+        item.style.marginBottom = "20px"; // 아이템 사이 간격 넓히기
+
         // 원가와 할인가 모두 표시 - 시각적 개선
         item.innerHTML = `${name} x${count} <br>
                            원가: <span style="text-decoration: line-through;">${itemTotal.toLocaleString()}원</span> <br><strong style="color: #e74c3c;">할인가: ${Math.round(discountedItemTotal).toLocaleString()}원</strong>`;
@@ -80,10 +83,26 @@ function updateCart() {
         cartDisplay.appendChild(item);
         // .appendChild(itme) 미리 만들어 둔 cartDisplay에 item을 자식으로 추가해줘
     }
+    // 구분선 추가
+    const divider = document.createdElement("hr");
+    divider.style.borderTop = "2px solid #333"; // 구분선 스타일
+    divider.style.marginTop = "20px"; // 위쪽 여백
+    divider.style.marginBottom = "20px"; // 아래쪽 여백
+    cartDisplay.appendChild(divider); // 구분선 추가
 
-    // 화면에 금액 정보 업데이트
+    // 합계 정보를 표시할 div 생성
+    const summaryDiv = document.createElement("div");
+    summaryDiv.innerHTML = `<div style="margin-bottom: 10px;">정가 합계; <span id="original-total-inline">${originalTotal.toLocaleString()}</span>원</div>
+                            <div style="margin-bottom: 10px;">할인 금액: <span id="discount-amount-inline" style="color: #e74c3c;">${Math.round(originalTotal - discountedTotal).toLocaleString()}</span>원</div>
+                            <div style="font-weight: bold; font-size: 1.2em;">총 합계: <span id="total-inline">${Math.round(discountedTotal).toLocaleString()}</span>원</div>`;
+    
+    cartDisplay.appendChild(summaryDiv);
+    
+    // 기존 합계 표시 업데이트(페이지 하단 부분)
     originalTotalDisplay.textContent = originalTotal.toLocaleString();
     const discountAmount = originalTotal - discountedTotal; //변수명 통일
     discountAmountDisplay.textContent = Math.round(discountAmount).toLocaleString(); // Math.round() 추가
     totalDisplay.textContent = Math.round(discountedTotal).toLocaleString(); // Math.round() 추가
 }
+
+
