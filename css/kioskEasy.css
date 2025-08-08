@@ -1,3 +1,69 @@
+/* 전체 페이지 컨테이너에 최대 너비 및 중앙 정렬 적용 */
+body {
+    max-width: 1200px; /* 컨텐츠의 최대 너비 지정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 0 20px; /* 모바일 화면에서의 좌우 여백 */
+}
+
+/* 헤더 부분 중앙 정렬 개선 */
+.kiosk-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+/* 메뉴 섹션과 카트 섹션에 대한 컨테이너 너비 조정 */
+.menu-section, .cart-section {
+    max-width: 1000px; /* 섹션 최대 너비 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* 스와이퍼 컨테이너 조정 */
+.swiper {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 중간 사이즈 화면을 위한 미디어 쿼리 */
+@media (min-width: 768px) {
+    body {
+        padding: 0 40px; /* 태블릿 화면에서 더 넓은 여백 */
+    }
+    
+    .swiper {
+        max-width: 90%; /* 스와이퍼를 화면 폭의 90%로 제한 */
+    }
+}
+
+/* 큰 화면에서의 여백 추가 */
+@media (min-width: 1200px) {
+    body {
+        padding: 0 60px; /* 데스크탑에서 더 넓은 여백 */
+    }
+    
+    .swiper {
+        max-width: 80%; /* 스와이퍼를 화면 폭의 80%로 제한 */
+    }
+}
+
+/* 카트 섹션 너비 제한 및 중앙 정렬 */
+.cart-container {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+/* 카드 크기 균일화 */
+.menu-card {
+    height: 100%; /* 카드 높이 균일화 */
+}
+
+/* 이미지 비율 조정 */
+.menu-card img {
+    object-fit: cover; /* 이미지가 컨테이너를 채우도록 설정 */
+    height: 200px; /* 모든 이미지 높이 통일 */
+    width: 100%;
+}
+
 /* 메뉴 카드 버튼 스타일 */
 .menu-card-button {
     background: none;
